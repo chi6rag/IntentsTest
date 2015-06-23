@@ -3,17 +3,34 @@ package net.chi6rag.android.intentstest;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+
+import java.io.File;
+import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity {
 
+    Button button_activity_toast;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        button_activity_toast = (Button) findViewById(R.id.button_activity_toast);
+        button_activity_toast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                L.m("This should take me to ViewToast Activity");
+                Intent intent = new Intent(MainActivity.this, ViewToast.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void process(View view) {
@@ -55,6 +72,27 @@ public class MainActivity extends ActionBarActivity {
                 intent.putExtra(Intent.EXTRA_TEXT, "Hey! I have attached this image");
                 chooser = Intent.createChooser(intent, "Choose App to Send Image");
                 startActivity(chooser);
+                break;
+            case R.id.button_send_images:
+                L.m("Clicked button_send_images");
+                File pictures = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                String[] listOfPictures = pictures.list();
+                System.out.println(listOfPictures);
+                ArrayList<Uri> arrayList = new ArrayList<Uri>();
+                Uri uri = null;
+                if(listOfPictures != null){
+                    for(String picture : listOfPictures){
+                        uri = Uri.parse("file://" + pictures.toString() + picture);
+                        arrayList.add(uri);
+                    }
+                    intent = new Intent(Intent.ACTION_SEND_MULTIPLE);
+                    intent.putExtra(Intent.EXTRA_STREAM, arrayList);
+                    intent.setType("image/*");
+                    chooser = Intent.createChooser(intent, "Send Multiple Images");
+                    startActivity(chooser);
+                }else{
+                    L.s(this, "No images inside the SD Card");
+                }
                 break;
             default:
                 Log.d("chi6rag", "Clicked unidentified button");

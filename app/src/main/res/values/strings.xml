@@ -8,4 +8,11 @@
     <string name="button_launch_market">Launch Market</string>
     <string name="button_send_email">Send Email</string>
     <string name="button_send_image">Send Image</string>
+    <string name="button_send_images">Send Images</string>
+    <string name="button_activity_toast">Go To Activity Toast</string>
+    <string name="title_activity_view_toast">ViewToast</string>
+
+    <string name="button_popup_toast">Pop Up Toast</string>
+
+    <string name="toast_text">This is the popped up toast</string>
 </resources>
