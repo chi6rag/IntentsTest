@@ -7,4 +7,5 @@
     <string name="button_launch_map">Launch Map</string>
     <string name="button_launch_market">Launch Market</string>
     <string name="button_send_email">Send Email</string>
+    <string name="button_send_image">Send Image</string>
 </resources>
