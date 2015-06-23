@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#2ecc71"
+    tools:context=".MainActivity">
+
+    <Button
+        android:text="@string/button_launch_map"
+        android:id="@+id/button_launch_map"
+        android:layout_width="match_parent"
+        android:background="#f1c40f"
+        android:layout_marginBottom="6dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:text="@string/button_launch_market"
+        android:id="@+id/button_launch_market"
+        android:layout_width="match_parent"
+        android:background="#f1c40f"
+        android:layout_marginBottom="6dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:text="@string/button_send_email"
+        android:id="@+id/button_send_email"
+        android:layout_width="match_parent"
+        android:background="#f1c40f"
+        android:layout_marginBottom="6dp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
